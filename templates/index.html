@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tomato Disease Detection</title>
+    <script>
+        function uploadImage(event) {
+            event.preventDefault();  // Prevent the form from submitting the traditional way
+
+            // Get the form data
+            var formData = new FormData(document.getElementById("uploadForm"));
+
+            // Send the form data using fetch
+            fetch("/", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Display the result in a pop-up alert
+                alert("Predicted Disease: " + data.disease + "\nConfidence: " + data.confidence);
+            })
+            .catch(error => {
+                console.error("Error:", error);
+                alert("An error occurred while processing your request.");
+            });
+        }
+    </script>
+</head>
+<body>
+    <h1>Upload an Image to Detect Tomato Disease</h1>
+    <form id="uploadForm" action="/" method="post" enctype="multipart/form-data" onsubmit="uploadImage(event)">
+        <input type="file" name="image" accept="image/*" required>
+        <input type="submit" value="Upload and Predict">
+    </form>
+    <div id="result"></div>
+</body>
+</html>
