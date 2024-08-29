@@ -2,7 +2,7 @@
 notebooks/
 
 # Ignore Training Data
-model/
+model/model_history.json
 
 #Ignore upload_images
 upload_images/
