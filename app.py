@@ -7,7 +7,7 @@ import os
 app = Flask(__name__)
 
 # Load the trained model
-model = load_model('tomato_disease_model.h5')
+model = load_model('./model/tomato_disease_model.h5')
 
 # Define a function to preprocess the image
 def preprocess_image(image, target_size):

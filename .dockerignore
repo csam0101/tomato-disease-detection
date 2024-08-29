@@ -1,5 +1,11 @@
 # Ignore Notebook
-Tomato_Disease_Detection.ipynb
+notebooks/
+
+# Ignore Training Data
+model/
+
+#Ignore upload_images
+upload_images/
 
 # Ignore Git
 .git
